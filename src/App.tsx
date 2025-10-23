@@ -9,6 +9,12 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import FrontDesk from "./pages/FrontDesk";
 import Rooms from "./pages/Rooms";
+import Bookings from "./pages/Bookings";
+import Finance from "./pages/Finance";
+import Housekeeping from "./pages/Housekeeping";
+import Restaurant from "./pages/Restaurant";
+import Employees from "./pages/Employees";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,13 +32,12 @@ const App = () => (
             <Route path="/dashboard" element={<DashboardLayout><Dashboard /></DashboardLayout>} />
             <Route path="/front-desk" element={<DashboardLayout><FrontDesk /></DashboardLayout>} />
             <Route path="/rooms" element={<DashboardLayout><Rooms /></DashboardLayout>} />
-            {/* Placeholder routes for other modules */}
-            <Route path="/bookings" element={<DashboardLayout><div className="p-6">Bookings module coming soon</div></DashboardLayout>} />
-            <Route path="/finance" element={<DashboardLayout><div className="p-6">Finance module coming soon</div></DashboardLayout>} />
-            <Route path="/housekeeping" element={<DashboardLayout><div className="p-6">Housekeeping module coming soon</div></DashboardLayout>} />
-            <Route path="/restaurant" element={<DashboardLayout><div className="p-6">Restaurant module coming soon</div></DashboardLayout>} />
-            <Route path="/employees" element={<DashboardLayout><div className="p-6">Employee management coming soon</div></DashboardLayout>} />
-            <Route path="/settings" element={<DashboardLayout><div className="p-6">Settings coming soon</div></DashboardLayout>} />
+            <Route path="/bookings" element={<DashboardLayout><Bookings /></DashboardLayout>} />
+            <Route path="/finance" element={<DashboardLayout><Finance /></DashboardLayout>} />
+            <Route path="/housekeeping" element={<DashboardLayout><Housekeeping /></DashboardLayout>} />
+            <Route path="/restaurant" element={<DashboardLayout><Restaurant /></DashboardLayout>} />
+            <Route path="/employees" element={<DashboardLayout><Employees /></DashboardLayout>} />
+            <Route path="/settings" element={<DashboardLayout><Settings /></DashboardLayout>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

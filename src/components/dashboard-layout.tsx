@@ -1,6 +1,7 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { LanguageSelector } from "@/components/language-selector"
 import { Bell, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -18,6 +19,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           <header className="h-16 border-b border-border bg-card flex items-center justify-between px-6">
             <SidebarTrigger />
             <div className="flex items-center gap-2">
+              <LanguageSelector />
               <ThemeToggle />
               <Button variant="ghost" size="icon">
                 <Bell className="h-5 w-5" />
