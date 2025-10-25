@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -8,9 +7,10 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Languages } from "lucide-react"
 import type { Language } from "@/lib/i18n"
+import { useLanguage } from "@/contexts/language-context"
 
 export function LanguageSelector() {
-  const [language, setLanguage] = useState<Language>("en")
+  const { language, setLanguage } = useLanguage()
 
   const languages = [
     { code: "en" as Language, name: "English", flag: "🇬🇧" },

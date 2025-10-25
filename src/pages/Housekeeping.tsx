@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ClipboardList, CheckCircle, AlertCircle, Clock } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 import {
   Dialog,
   DialogContent,
@@ -15,6 +16,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 
 const Housekeeping = () => {
+  const { t } = useLanguage()
   const tasks = [
     {
       id: 1,
@@ -87,7 +89,7 @@ const Housekeeping = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Housekeeping</h1>
+          <h1 className="text-3xl font-bold">{t.housekeeping}</h1>
           <p className="text-muted-foreground">Manage cleaning tasks and room maintenance</p>
         </div>
       </div>

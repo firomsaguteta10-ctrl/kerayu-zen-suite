@@ -10,6 +10,7 @@ import {
   UserCog
 } from "lucide-react"
 import { NavLink } from "react-router-dom"
+import { useLanguage } from "@/contexts/language-context"
 import {
   Sidebar,
   SidebarContent,
@@ -24,21 +25,22 @@ import {
 } from "@/components/ui/sidebar"
 import kerayuLogo from "@/assets/kerayu-logo.png"
 
-const menuItems = [
-  { title: "Dashboard", url: "/dashboard", icon: Home },
-  { title: "Front Desk", url: "/front-desk", icon: Users },
-  { title: "Rooms", url: "/rooms", icon: Bed },
-  { title: "Bookings", url: "/bookings", icon: Calendar },
-  { title: "Finance", url: "/finance", icon: CreditCard },
-  { title: "Housekeeping", url: "/housekeeping", icon: ClipboardList },
-  { title: "Restaurant", url: "/restaurant", icon: Utensils },
-  { title: "Employees", url: "/employees", icon: UserCog },
-  { title: "Settings", url: "/settings", icon: Settings },
-]
-
 export function AppSidebar() {
   const { state } = useSidebar()
+  const { t } = useLanguage()
   const isCollapsed = state === "collapsed"
+
+  const menuItems = [
+    { title: t.dashboard, url: "/dashboard", icon: Home },
+    { title: t.frontDesk, url: "/front-desk", icon: Users },
+    { title: t.rooms, url: "/rooms", icon: Bed },
+    { title: t.bookings, url: "/bookings", icon: Calendar },
+    { title: t.finance, url: "/finance", icon: CreditCard },
+    { title: t.housekeeping, url: "/housekeeping", icon: ClipboardList },
+    { title: t.restaurant, url: "/restaurant", icon: Utensils },
+    { title: t.employees, url: "/employees", icon: UserCog },
+    { title: t.settings, url: "/settings", icon: Settings },
+  ]
 
   return (
     <Sidebar collapsible="icon">
@@ -60,7 +62,7 @@ export function AppSidebar() {
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Main Menu</SidebarGroupLabel>
+          <SidebarGroupLabel>{t.dashboard}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {menuItems.map((item) => (

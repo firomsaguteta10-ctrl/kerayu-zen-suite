@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Plus, Filter } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 import {
   Select,
   SelectContent,
@@ -26,6 +27,7 @@ interface Room {
 const Rooms = () => {
   const [filterStatus, setFilterStatus] = useState<string>("all")
   const [filterType, setFilterType] = useState<string>("all")
+  const { t } = useLanguage()
 
   const rooms: Room[] = [
     { id: 1, number: "101", type: "Single", floor: 1, status: "vacant", price: 1500, features: ["WiFi", "TV", "AC"] },
@@ -72,12 +74,12 @@ const Rooms = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Room Management</h1>
+          <h1 className="text-3xl font-bold">{t.roomManagement}</h1>
           <p className="text-muted-foreground">View and manage all hotel rooms</p>
         </div>
         <Button>
           <Plus className="h-4 w-4 mr-2" />
-          Add Room
+          {t.addRoom}
         </Button>
       </div>
 
@@ -85,7 +87,7 @@ const Rooms = () => {
       <div className="grid gap-4 md:grid-cols-4">
         <Card className="border-border">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Vacant (Clean)</CardTitle>
+            <CardTitle className="text-sm font-medium">{t.vacant}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-primary">{statusCounts.vacant}</div>
@@ -93,7 +95,7 @@ const Rooms = () => {
         </Card>
         <Card className="border-border">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Occupied</CardTitle>
+            <CardTitle className="text-sm font-medium">{t.occupied}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-secondary">{statusCounts.occupied}</div>
@@ -101,7 +103,7 @@ const Rooms = () => {
         </Card>
         <Card className="border-border">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Cleaning</CardTitle>
+            <CardTitle className="text-sm font-medium">{t.cleaning}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-accent">{statusCounts.cleaning}</div>
@@ -109,7 +111,7 @@ const Rooms = () => {
         </Card>
         <Card className="border-border">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Maintenance</CardTitle>
+            <CardTitle className="text-sm font-medium">{t.maintenance}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-destructive">{statusCounts.maintenance}</div>
@@ -178,7 +180,7 @@ const Rooms = () => {
               </div>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" className="flex-1">
-                  Edit
+                  {t.edit}
                 </Button>
                 <Button variant="outline" size="sm" className="flex-1">
                   View Details

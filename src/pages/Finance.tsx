@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DollarSign, Receipt, TrendingUp, CreditCard, Download, Plus, Search } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 import {
   Select,
   SelectContent,
@@ -24,6 +25,7 @@ import {
 
 const Finance = () => {
   const [searchQuery, setSearchQuery] = useState("")
+  const { t } = useLanguage()
 
   const invoices = [
     {
@@ -70,14 +72,14 @@ const Finance = () => {
 
   const stats = [
     {
-      title: "Today's Revenue",
+      title: t.todayRevenue,
       value: "45,320 ETB",
       change: "+12.5%",
       icon: DollarSign,
       color: "text-primary",
     },
     {
-      title: "Pending Payments",
+      title: t.payments,
       value: "13,800 ETB",
       change: "2 invoices",
       icon: Receipt,
@@ -91,7 +93,7 @@ const Finance = () => {
       color: "text-secondary",
     },
     {
-      title: "Total Expenses",
+      title: t.expenses,
       value: "51,500 ETB",
       change: "This month",
       icon: CreditCard,

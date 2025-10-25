@@ -1,31 +1,33 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, Bed, DollarSign, Calendar, TrendingUp, Clock } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 const Dashboard = () => {
+  const { t } = useLanguage()
   const stats = [
     {
-      title: "Total Guests",
+      title: t.totalGuests,
       value: "124",
       change: "+12% from last month",
       icon: Users,
       color: "text-primary"
     },
     {
-      title: "Occupied Rooms",
+      title: t.occupiedRooms,
       value: "45/60",
       change: "75% occupancy",
       icon: Bed,
       color: "text-secondary"
     },
     {
-      title: "Today's Revenue",
+      title: t.todayRevenue,
       value: "45,320 ETB",
       change: "+8% from yesterday",
       icon: DollarSign,
       color: "text-accent"
     },
     {
-      title: "Check-ins Today",
+      title: t.checkInsToday,
       value: "12",
       change: "8 pending arrivals",
       icon: Calendar,
@@ -44,7 +46,7 @@ const Dashboard = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <h1 className="text-3xl font-bold">{t.dashboard}</h1>
           <p className="text-muted-foreground">Welcome back to Kerayu Hotel Management</p>
         </div>
       </div>
@@ -71,7 +73,7 @@ const Dashboard = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Clock className="h-5 w-5" />
-              Recent Activity
+              {t.recentActivity}
             </CardTitle>
           </CardHeader>
           <CardContent>

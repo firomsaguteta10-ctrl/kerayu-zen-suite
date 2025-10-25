@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Plus, Utensils, Clock, CheckCircle, Search } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 import {
   Dialog,
   DialogContent,
@@ -24,6 +25,7 @@ import {
 
 const Restaurant = () => {
   const [searchQuery, setSearchQuery] = useState("")
+  const { t } = useLanguage()
 
   const menuItems = [
     { id: 1, name: "Doro Wat", category: "Main Course", price: 350, description: "Traditional Ethiopian chicken stew" },
@@ -99,7 +101,7 @@ const Restaurant = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Restaurant & Room Service</h1>
+          <h1 className="text-3xl font-bold">{t.restaurant}</h1>
           <p className="text-muted-foreground">Manage menu, orders, and kitchen operations</p>
         </div>
         <div className="flex gap-2">

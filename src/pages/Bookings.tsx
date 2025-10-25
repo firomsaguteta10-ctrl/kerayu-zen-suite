@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Calendar } from "@/components/ui/calendar"
 import { Badge } from "@/components/ui/badge"
 import { Plus, Calendar as CalendarIcon, Users, Search } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 import {
   Dialog,
   DialogContent,
@@ -26,6 +27,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 const Bookings = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date())
   const [searchQuery, setSearchQuery] = useState("")
+  const { t } = useLanguage()
 
   const bookings = [
     {
@@ -80,14 +82,14 @@ const Bookings = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Bookings & Reservations</h1>
+          <h1 className="text-3xl font-bold">{t.bookings}</h1>
           <p className="text-muted-foreground">Manage all hotel bookings and reservations</p>
         </div>
         <Dialog>
           <DialogTrigger asChild>
             <Button>
               <Plus className="h-4 w-4 mr-2" />
-              New Booking
+              {t.newBooking}
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-3xl">

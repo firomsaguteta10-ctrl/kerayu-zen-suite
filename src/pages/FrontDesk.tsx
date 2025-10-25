@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { UserPlus, UserCheck, Search, Key, Clock } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 import {
   Dialog,
   DialogContent,
@@ -17,6 +18,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 const FrontDesk = () => {
   const [searchQuery, setSearchQuery] = useState("")
+  const { t } = useLanguage()
 
   const currentGuests = [
     { id: 1, name: "John Smith", room: "204", checkIn: "2025-10-20", checkOut: "2025-10-25", status: "Active" },
@@ -28,7 +30,7 @@ const FrontDesk = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Front Desk</h1>
+          <h1 className="text-3xl font-bold">{t.frontDesk}</h1>
           <p className="text-muted-foreground">Manage check-ins, check-outs, and guest services</p>
         </div>
         <div className="flex gap-2">
@@ -36,32 +38,32 @@ const FrontDesk = () => {
             <DialogTrigger asChild>
               <Button>
                 <UserPlus className="h-4 w-4 mr-2" />
-                New Check-in
+                {t.newCheckIn}
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl">
               <DialogHeader>
-                <DialogTitle>Guest Check-in</DialogTitle>
+                <DialogTitle>{t.guestCheckIn}</DialogTitle>
                 <DialogDescription>Complete the check-in process for a new guest</DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
+                    <Label htmlFor="firstName">{t.name}</Label>
                     <Input id="firstName" placeholder="Enter first name" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
+                    <Label htmlFor="lastName">{t.name}</Label>
                     <Input id="lastName" placeholder="Enter last name" />
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">{t.email}</Label>
                     <Input id="email" type="email" placeholder="guest@example.com" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone">{t.phone}</Label>
                     <Input id="phone" placeholder="+251 xxx xxx xxx" />
                   </div>
                 </div>
@@ -115,17 +117,17 @@ const FrontDesk = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="checkIn">Check-in Date</Label>
+                    <Label htmlFor="checkIn">{t.checkInDate}</Label>
                     <Input id="checkIn" type="date" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="checkOut">Check-out Date</Label>
+                    <Label htmlFor="checkOut">{t.checkOutDate}</Label>
                     <Input id="checkOut" type="date" />
                   </div>
                 </div>
               </div>
               <div className="flex justify-end gap-2">
-                <Button variant="outline">Cancel</Button>
+                <Button variant="outline">{t.cancel}</Button>
                 <Button>Complete Check-in</Button>
               </div>
             </DialogContent>
@@ -165,15 +167,15 @@ const FrontDesk = () => {
                     <div className="flex gap-2">
                       <Button variant="outline" size="sm">
                         <Key className="h-4 w-4 mr-2" />
-                        Issue Key
+                        {t.issueKey}
                       </Button>
                       <Button variant="outline" size="sm">
                         <Clock className="h-4 w-4 mr-2" />
-                        Extend Stay
+                        {t.extendStay}
                       </Button>
                       <Button size="sm">
                         <UserCheck className="h-4 w-4 mr-2" />
-                        Check Out
+                        {t.checkOut}
                       </Button>
                     </div>
                   </div>
